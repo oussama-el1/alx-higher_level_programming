@@ -19,4 +19,3 @@ if __name__ == "__main__":
         print(i)
     cursor.close()
     con.close()
-
