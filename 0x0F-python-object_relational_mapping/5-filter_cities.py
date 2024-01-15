@@ -13,13 +13,14 @@ if __name__ == "__main__":
     mycursor = connection.cursor()
     sql = '''
     SELECT cities.name
-    FROM cities, states
+    FROM cities, states 
     WHERE cities.state_id=states.id AND states.name = %s;
     '''
-    mycursor.execute(sql, (sys.argv[4],))
+    mycursor.execute(sql, (sys.argv[4],) )
     cityes = mycursor.fetchall()
     print("length : ", len(cityes))
     for city in cityes:
         print(city[0], end=', ')
+    print()
     mycursor.close()
     connection.close()
