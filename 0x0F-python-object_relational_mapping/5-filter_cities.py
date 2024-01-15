@@ -18,8 +18,8 @@ if __name__ == "__main__":
     '''
     mycursor.execute(sql, (sys.argv[4],))
     cityes = mycursor.fetchall()
-    print("length : ", len(cityes))
     for city in cityes:
         print(city[0], end=', ')
+    print()
     mycursor.close()
     connection.close()
