@@ -6,28 +6,19 @@ import sys
 import MySQLdb
 
 
-def show_states():
-    """
-    List all states.
-    """
+if __name__ == "__main__":
     connection = MySQLdb.connect(
         host="localhost",
         user=sys.argv[1],
         password=sys.argv[2],
         database=sys.argv[3],
+        port=3306
     )
 
     mycursor = connection.cursor()
-    sql = "SELECT * FROM states ORDER BY id"
-    mycursor.execute(sql)
+    mycursor.execute("SELECT * FROM states")
     data = mycursor.fetchall()
-
     for row in data:
         print(row)
-
     mycursor.close()
     connection.close()
-
-
-if __name__ == "__main__":
-    show_states()
