@@ -12,11 +12,11 @@ if __name__ == "__main__":
     )
     mycursor = connection.cursor()
     sql = '''
-    SELECT cities.name
-    FROM cities, states 
-    WHERE cities.state_id=states.id AND states.name = %s;
+        SELECT cities.name FROM
+        cities INNER JOIN states ON states.id=cities.state_id
+        WHERE states.name=%s
     '''
-    mycursor.execute(sql, (sys.argv[4],) )
+    mycursor.execute(sql, (sys.argv[4],))
     cityes = mycursor.fetchall()
     for city in cityes:
         print(city[0], end=', ')
