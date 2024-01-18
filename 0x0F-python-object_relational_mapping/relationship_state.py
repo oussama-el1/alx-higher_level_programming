@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 """
-class and Base, an instance of declarative_base()
+Contains State class and Base, an instance of declarative_base()
 """
 from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
-meta = MetaData()
-Base = declarative_base(metadata=meta)
+mymetadata = MetaData()
+Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
     """
-    id and name attributes of each state
+    Class with id and name attributes of each state
     """
     __tablename__ = 'states'
     id = Column(Integer, unique=True, nullable=False, primary_key=True)
